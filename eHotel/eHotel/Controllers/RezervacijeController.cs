@@ -1,12 +1,72 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using eHotel.Database;
+using eHotel.Dto.Rezervacija;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eHotel.Controllers
 {
-    public class RezervacijeController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class RezervacijeController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IRezervacijeService _rezervacijeService;
+
+        public RezervacijeController(IRezervacijeService rezervacijeService)
         {
-            return View();
+            _rezervacijeService = rezervacijeService;
+        }
+
+        [HttpGet]
+        public ActionResult<List<Rezervacija>> Get([FromQuery] RezervacijaSearchObject search)
+        {
+            return Ok(_rezervacijeService.Get(search));
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Rezervacija> GetById(int id)
+        {
+            var result = _rezervacijeService.GetById(id);
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public ActionResult<Rezervacija> Insert([FromBody] RezervacijaInsertRequest request)
+        {
+            var result = _rezervacijeService.Insert(request);
+            return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Rezervacija> Update(int id, [FromBody] RezervacijaUpdateRequest request)
+        {
+            var result = _rezervacijeService.Update(id, request);
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            var result = _rezervacijeService.Delete(id);
+
+            if (!result)
+                return NotFound();
+
+            return NoContent();
+        }
+
+        [HttpGet("korisnik/{korisnikId}")]
+        public ActionResult<List<Rezervacija>> GetByKorisnikId(int korisnikId)
+        {
+            return Ok(_rezervacijeService.GetByKorisnikId(korisnikId));
+        }
+
+        [HttpPut("{rezervacijaId}/otkazi")]
+        public ActionResult<Rezervacija> OtkaziRezervaciju(int rezervacijaId)
+        {
+            var result = _rezervacijeService.OtkaziRezervaciju(rezervacijaId);
+            return Ok(result);
         }
     }
 }

@@ -15,6 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IKorisnikService, KorisnikService>();
+builder.Services.AddScoped<IRezervacijeService, RezervacijaService>();
+builder.Services.AddScoped<IDodatneUslugeService, DodatneUslugeService>();
+builder.Services.AddScoped<IPlacanjeService, PlacanjaService>();
 builder.Services.AddDbContext<EHotelContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
