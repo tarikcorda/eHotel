@@ -4,6 +4,7 @@
     {
         Kreirana = 0,
         Potvrdjena = 1,
-        Otkazana = 2
+        Otkazana = 2,
+        Zavrsena = 3
     }
 }
