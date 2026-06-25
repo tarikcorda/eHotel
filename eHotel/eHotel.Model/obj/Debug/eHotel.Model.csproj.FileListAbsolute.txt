@@ -1,6 +1,0 @@
-C:\Users\PC\Desktop\eHotel\eHotel\eHotel.Model\bin\Debug\eHotel.Model.dll
-C:\Users\PC\Desktop\eHotel\eHotel\eHotel.Model\bin\Debug\eHotel.Model.pdb
-C:\Users\PC\Desktop\eHotel\eHotel\eHotel.Model\obj\Debug\eHotel.Model.csproj.AssemblyReference.cache
-C:\Users\PC\Desktop\eHotel\eHotel\eHotel.Model\obj\Debug\eHotel.Model.csproj.CoreCompileInputs.cache
-C:\Users\PC\Desktop\eHotel\eHotel\eHotel.Model\obj\Debug\eHotel.Model.dll
-C:\Users\PC\Desktop\eHotel\eHotel\eHotel.Model\obj\Debug\eHotel.Model.pdb
